@@ -10,26 +10,75 @@
 let alunos = [];
 let proximoId = 1;
 
+<<<<<<< HEAD
+=======
+// ============================================
+// Funções Auxiliares
+// ============================================
+
+/**
+ * Escapa caracteres HTML para prevenir injeção de conteúdo.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * Normaliza texto para uso como classe CSS (remove acentos e converte para minúsculas).
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function normalizarClasse(texto) {
     return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
+<<<<<<< HEAD
 function calcularMedia(nota1, nota2, nota3) {
   return (nota1 + nota2 + nota3) / 3;
 }
 
+=======
+// ============================================
+// Funções de Cálculo
+// ============================================
+
+/**
+ * Calcula a média aritmética das três notas do aluno.
+ * @param {number} nota1 - Primeira nota (0 a 10)
+ * @param {number} nota2 - Segunda nota (0 a 10)
+ * @param {number} nota3 - Terceira nota (0 a 10)
+ * @returns {number} Média aritmética das notas
+ */
+function calcularMedia(nota1, nota2, nota3) {
+    return (nota1 + nota2) / 2;
+}
+
+/**
+ * Determina a situação do aluno com base na média.
+ * - Média >= 7.0: Aprovado
+ * - Média >= 5.0 e < 7.0: Recuperação
+ * - Média < 5.0: Reprovado
+ * @param {number} media - Média do aluno
+ * @returns {string} Situação do aluno
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function determinarSituacao(media) {
     if (media >= 7) return 'Aprovado';
     if (media >= 5) return 'Recuperação';
     return 'Reprovado';
 }
 
+<<<<<<< HEAD
+=======
+// ============================================
+// Manipulação do DOM
+// ============================================
+
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-cadastro');
     const campoBusca = document.getElementById('busca');
@@ -43,6 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizarEstatisticas();
 });
 
+<<<<<<< HEAD
+=======
+/**
+ * Cadastra um novo aluno no sistema.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function cadastrarAluno(event) {
     event.preventDefault();
 
@@ -51,6 +106,10 @@ function cadastrarAluno(event) {
     const nota2 = parseFloat(document.getElementById('nota2').value);
     const nota3 = parseFloat(document.getElementById('nota3').value);
 
+<<<<<<< HEAD
+=======
+    // Validações
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
     if (!nome) {
         exibirMensagem('Por favor, preencha o nome do aluno.', 'erro');
         return;
@@ -80,12 +139,22 @@ function cadastrarAluno(event) {
     };
 
     alunos.push(aluno);
+<<<<<<< HEAD
     atualizarTabela(document.getElementById('busca').value);
+=======
+    atualizarTabela();
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
     atualizarEstatisticas();
     limparFormulario();
     exibirMensagem(`Aluno "${nome}" cadastrado com sucesso!`, 'sucesso');
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * Atualiza a tabela de alunos, opcionalmente filtrando por nome.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function atualizarTabela(filtro = '') {
     const tbody = document.querySelector('#tabela-alunos tbody');
     tbody.innerHTML = '';
@@ -111,12 +180,22 @@ function atualizarTabela(filtro = '') {
             <td>${aluno.nota3.toFixed(1)}</td>
             <td>${aluno.media.toFixed(2)}</td>
             <td><span class="badge badge-${normalizarClasse(aluno.situacao)}">${aluno.situacao}</span></td>
+<<<<<<< HEAD
             <td><button type="button" class="btn-excluir" onclick="excluirAluno(${aluno.id})" aria-label="Excluir ${escapeHtml(aluno.nome)}">&#10005;</button></td>
+=======
+            <td><button class="btn-excluir" onclick="excluirAluno(${aluno.id})" aria-label="Excluir ${escapeHtml(aluno.nome)}">&#10005;</button></td>
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
         `;
         tbody.appendChild(tr);
     });
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * Atualiza os cards de estatísticas.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function atualizarEstatisticas() {
     const total = alunos.length;
     const aprovados = alunos.filter(a => a.situacao === 'Aprovado').length;
@@ -129,6 +208,12 @@ function atualizarEstatisticas() {
     document.getElementById('stat-reprovados').textContent = reprovados;
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * Exclui um aluno pelo ID.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function excluirAluno(id) {
     alunos = alunos.filter(a => a.id !== id);
     atualizarTabela(document.getElementById('busca').value);
@@ -136,6 +221,12 @@ function excluirAluno(id) {
     exibirMensagem('Aluno removido com sucesso.', 'sucesso');
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * Limpa todos os alunos cadastrados.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function limparTudo() {
     if (alunos.length === 0) return;
 
@@ -148,11 +239,23 @@ function limparTudo() {
     }
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * Limpa os campos do formulário.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function limparFormulario() {
     document.getElementById('form-cadastro').reset();
     document.getElementById('nome').focus();
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * Exibe uma mensagem de feedback para o usuário.
+ */
+>>>>>>> 417dc790322f222f851cb4853960e4f27fd41fa1
 function exibirMensagem(texto, tipo) {
     const div = document.getElementById('mensagem');
     div.textContent = texto;
