@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QS Acadêmico — Sistema de Gestão de Notas</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>QS Acadêmico</h1>
+      <p>Sistema de Gestão de Notas</p>
+    </header>
+
+    <section class="card">
+      <h2>Cadastro de Aluno</h2>
+      <div id="mensagem" class="mensagem" hidden aria-live="polite"></div>
+      <form id="form-cadastro">
+        <div class="grid-form">
+          <div class="campo">
+            <label for="nome">Nome do Aluno</label>
+            <input id="nome" name="nome" type="text" />
+          </div>
+          <div class="campo">
+            <label for="nota1">Nota 1</label>
+            <input id="nota1" name="nota1" type="number" min="0" max="10" step="0.1" />
+          </div>
+          <div class="campo">
+            <label for="nota2">Nota 2</label>
+            <input id="nota2" name="nota2" type="number" min="0" max="10" step="0.1" />
+          </div>
+          <div class="campo">
+            <label for="nota3">Nota 3</label>
+            <input id="nota3" name="nota3" type="number" min="0" max="10" step="0.1" />
+          </div>
+        </div>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <div>
+          <label for="busca">Buscar por nome</label>
+          <input id="busca" name="busca" type="text" />
+        </div>
+        <button id="btn-limpar" type="button">Limpar Tudo</button>
+      </div>
+
+      <div class="tabela-wrap">
+        <table id="tabela-alunos">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Nota 1</th>
+              <th>Nota 2</th>
+              <th>Nota 3</th>
+              <th>Média</th>
+              <th>Situação</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="7" class="texto-central">Nenhum aluno cadastrado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><strong id="stat-total">0</strong><span>Total de Alunos</span></article>
+      <article class="stat-card"><strong id="stat-aprovados">0</strong><span>Aprovados</span></article>
+      <article class="stat-card"><strong id="stat-recuperacao">0</strong><span>Recuperação</span></article>
+      <article class="stat-card"><strong id="stat-reprovados">0</strong><span>Reprovados</span></article>
+    </section>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
